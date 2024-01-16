@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/categories/create">Them Moi</a>
+<div th:each="item : ${list}">
+    <span th:text="${item.id}"></span>
+    <span th:text="${item.name}"></span>
+    <span th:text="${item.producer}"></span>
+
+    <a th:href="@{/categories/edit/__${item.id}__}">Edit</a>
+    <a th:href="@{/categories/delete/__${item.id}__}">Delete</a>
+</div>
+
+</body>
+</html>

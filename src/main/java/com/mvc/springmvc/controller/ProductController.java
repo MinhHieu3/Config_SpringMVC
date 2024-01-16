@@ -1,15 +1,17 @@
 package com.mvc.springmvc.controller;
+
 import com.mvc.springmvc.model.Product;
 import com.mvc.springmvc.repository.CategoryRepository;
 import com.mvc.springmvc.repository.ProductRepository;
 
+import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/products")
@@ -36,7 +38,7 @@ public class ProductController {
     }
 
     @PostMapping("/save")
-    public String save( Product product) {
+    public String save(Product product) {
         productRepository.save(product);
         return "redirect:/products";
     }
@@ -54,5 +56,13 @@ public class ProductController {
     public String delete(@PathVariable int id) {
         productRepository.delete(productRepository.findById(id).get());
         return "redirect:/products";
+    }
+
+    @GetMapping("/search")
+    public ModelAndView search(@RequestParam String search) {
+        ModelAndView modelAndView = new ModelAndView("/product/list");
+        List<Product>productList=new ArrayList<>( productRepository.findProductByNameContaining(search));
+        modelAndView.addObject("list",productList);
+        return modelAndView;
     }
 }

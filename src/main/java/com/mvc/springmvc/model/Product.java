@@ -11,17 +11,17 @@ public class Product {
     private String name;
     private double price;
     @ManyToOne
-    private Category idCate;
+    private Category category;
 
 
     public Product() {
     }
 
-    public Product(int id, String name, double price, Category idCate) {
+    public Product(int id, String name, double price, Category category) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.idCate = idCate;
+        this.category = category;
     }
 
     public int getId() {
@@ -51,11 +51,11 @@ public class Product {
     public void put(int id, Product product) {
     }
 
-    public Category getIdCate() {
-        return idCate;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setIdCate(Category idCate) {
-        this.idCate = idCate;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

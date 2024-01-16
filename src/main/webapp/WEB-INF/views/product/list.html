@@ -6,15 +6,17 @@
 </head>
 <body>
 <a href="/products/create">Them Moi</a>
+<form action="/products/search">
+    <input type="text" name="search" id="">
+    <button>Tim</button>
+</form>
 <div th:each="item : ${list}">
     <span th:text="${item.id}"></span>
     <span th:text="${item.name}"></span>
     <span th:text="${item.price}"></span>
-    <span th:text="${item.getIdCate().getName()}"></span>
-
+    <span th:text="${item.category.name}"></span>
     <a th:href="@{/products/edit/__${item.id}__}">Edit</a>
     <a th:href="@{/products/delete/__${item.id}__}">Delete</a>
 </div>
-<h1 th:text="${mess}"></h1>
 </body>
 </html>

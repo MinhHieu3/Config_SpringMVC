@@ -10,7 +10,7 @@
         <input type="hidden" name="id" th:value="${item.id}">
         <input type="text" name="name" th:value="${item.name}">
         <input type="text" name="price" th:value="${item.price}">
-        <select th:field="${product.idCate.id}">
+        <select th:field="${product.category.id}">
             <option th:each="cate: ${listCate}" th:text=" ${cate.name}" th:value="${cate.id}" ></option>
         </select>
         <button>Edit</button>

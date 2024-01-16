@@ -8,7 +8,7 @@
 <form action="/products/save" method="post">
     <input type="text" name="name">
     <input type="text" name="price">
-    <select th:field="${product.idCate.id}">
+    <select th:field="${product.category.id}">
         <option th:each="cate: ${listCate}" th:text=" ${cate.name}" th:value="${cate.id}" ></option>
     </select>
     <button>Add</button>

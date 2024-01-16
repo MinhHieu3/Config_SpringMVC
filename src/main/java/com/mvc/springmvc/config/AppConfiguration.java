@@ -1,5 +1,6 @@
 package com.mvc.springmvc.config;
 
+import com.mvc.springmvc.repository.CategoryRepository;
 import com.mvc.springmvc.service.ProductService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -114,4 +115,5 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public ProductService productService() {
         return new ProductService();
     }
+
 }
